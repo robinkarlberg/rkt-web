@@ -96,7 +96,7 @@ const Home = async () => {
             <h2 className="text-2xl font-bold mb-2">About us</h2>
             <div className="space-y-2">
               <p className="text-justify">
-                RKT was founded by <strong><Link target="_blank" href={"https://www.linkedin.com/in/robin-karlberg/"} className="hover:underline">Robin</Link></strong>, a hacker, web developer, and music producer.
+                RKT was founded by <strong><Link target="_blank" href={"https://www.linkedin.com/in/robin-karlberg/"} className="hover:underline">Robin</Link></strong>.
               </p>
               <p className="text-justify">
                 People like to say "us" to make the company seem bigger and more professional, but "we" are really just "me".
