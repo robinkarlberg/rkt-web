@@ -1,4 +1,4 @@
-import { HouseIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { HouseIcon, MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 import Link from "next/link";
 
 const LINKS = [
@@ -71,7 +71,7 @@ const Home = () => {
                 <PhoneIcon size={16} /> +46 79 332 10 [fifty-seven]
               </p>
               <p className="flex items-center gap-2">
-                <HouseIcon size={16} /> Malakitgatan 6, 224 88 Lund, Sweden
+                <MapPinIcon size={16} /> Malakitgatan 6, 224 88 Lund, Sweden
               </p>
             </div>
           </div>
