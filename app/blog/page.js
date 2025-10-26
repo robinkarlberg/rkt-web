@@ -25,7 +25,7 @@ export default async function BlogIndexPage() {
           <p className="text-sm uppercase tracking-wide text-primary-500">Changelog</p>
           <h1 className="text-4xl font-bold">Simple blog</h1>
           <p className="text-lg text-primary-600 dark:text-primary-200">
-            Quick riffs on product strategy, distribution, and the engineering shortcuts that keep RKT shipping weekly.
+            In progress...
           </p>
         </header>
 

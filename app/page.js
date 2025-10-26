@@ -62,34 +62,36 @@ const Home = async () => {
               ))}
             </ul>
           </div>
-          <div>
-            <h2 className="text-2xl font-bold mb-2">Blog</h2>
-            <ul className="space-y-2">
-              {posts.map((post) => (
-                <li key={post.slug}>
-                  <Link href={`/blog/${post.slug}`} className="block hover:bg-primary-50 hover:dark:bg-primary-700 rounded-xl py-3 -my-2 px-3 -mx-3">
-                    <div className="w-full">
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                        <h3 className="font-bold text-lg">{post.title}</h3>
-                        {post.date && <time className="text-sm text-primary-500">{formatDate(post.date)}</time>}
+          {posts.length > 0 && (
+            <div>
+              <h2 className="text-2xl font-bold mb-2">Blog</h2>
+              <ul className="space-y-2">
+                {posts.map((post) => (
+                  <li key={post.slug}>
+                    <Link href={`/blog/${post.slug}`} className="block hover:bg-primary-50 hover:dark:bg-primary-700 rounded-xl py-3 -my-2 px-3 -mx-3">
+                      <div className="w-full">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                          <h3 className="font-bold text-lg">{post.title}</h3>
+                          {post.date && <time className="text-sm text-primary-500">{formatDate(post.date)}</time>}
+                        </div>
+                        <p className="text-justify text-primary-600 dark:text-primary-200">
+                          {post.description}
+                        </p>
                       </div>
-                      <p className="text-justify text-primary-600 dark:text-primary-200">
-                        {post.description}
-                      </p>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-              {posts.length === 0 && (
-                <li className="text-primary-500">No posts just yet — check back soon.</li>
-              )}
-            </ul>
-            <div className="text-sm mt-3">
-              <Link href="/blog" className="hover:underline">
-                Read all posts &rarr;
-              </Link>
+                    </Link>
+                  </li>
+                ))}
+                {posts.length === 0 && (
+                  <li className="text-primary-500">No posts just yet — check back soon.</li>
+                )}
+              </ul>
+              <div className="text-sm mt-3">
+                <Link href="/blog" className="hover:underline">
+                  Read all posts &rarr;
+                </Link>
+              </div>
             </div>
-          </div>
+          )}
           <div>
             <h2 className="text-2xl font-bold mb-2">About us</h2>
             <div className="space-y-2">
