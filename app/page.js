@@ -1,3 +1,4 @@
+import { MailIcon, PhoneIcon } from "lucide-react";
 import Link from "next/link";
 
 const LINKS = [
@@ -24,29 +25,53 @@ const Home = () => {
       <div className="page mx-auto">
         <div className="mb-8">
           <h1 className="text-5xl sm:text-6xl font-bold inline me-2 tracking-tight">RKT</h1>
-          <p className="inline mb-2">
+          <p className="inline">
             develops, provides and sells IT systems and cloud-based services (SaaS) as well as offers support and consulting services within IT, and activities compatible therewith.
           </p>
         </div>
-        <div>
-          <h2 className="text-2xl font-bold mb-4">Products</h2>
-          <ul className="space-y-2">
-            {LINKS.map(({ link, title, description, href }, i) => (
-              <li key={i}>
-                <Link href={href} className="block w-full hover:bg-primary-50 hover:dark:bg-primary-700 rounded-xl py-2 px-3 -my-2 -mx-3">
-                  <div className="w-full">
-                    <div className="flex justify-between items-center">
-                      <h3 className="font-bold text-lg">{title}</h3>
-                      {href != "#" && <span>&rarr;</span>}
+        <div className="space-y-12">
+          <div>
+            <h2 className="text-2xl font-bold mb-4">Products</h2>
+            <ul className="space-y-2">
+              {LINKS.map(({ link, title, description, href }, i) => (
+                <li key={i}>
+                  <Link href={href} className="block w-full hover:bg-primary-50 hover:dark:bg-primary-700 rounded-xl py-2 px-3 -my-2 -mx-3">
+                    <div className="w-full">
+                      <div className="flex justify-between items-center">
+                        <h3 className="font-bold text-lg">{title}</h3>
+                        {href != "#" && <span>&rarr;</span>}
+                      </div>
+                      <p className="text-justify">
+                        {description}
+                      </p>
                     </div>
-                    <p className="text-justify">
-                      {description}
-                    </p>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold mb-4">About us</h2>
+            <div className="space-y-2">
+              <p className="text-justify">
+                RKT was founded by <strong>Robin Karlberg</strong>, a hacker, web developer, and music producer.
+              </p>
+              <p className="text-justify">
+                People like to say "us" to make the company seem bigger and more professional, but "we" are really just "me".
+              </p>
+            </div>
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold mb-4">Contact</h2>
+            <div className="space-y-2">
+              <p className="flex items-center gap-2">
+                <MailIcon size={16} /> robin [at] rkt.dev
+              </p>
+              <p className="flex items-center gap-2">
+                <PhoneIcon size={16} /> +46 79 332 10 [fifty-seven]
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

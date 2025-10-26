@@ -30,8 +30,8 @@ export default function RootLayout({ children }) {
         <div className="min-h-[84vh]">
           {children}
         </div>
-        <footer className="px-4 sm:px-6">
-          <div className="page mx-auto">
+        <footer className="px-4 sm:px-6 mt-2">
+          <div className="page mx-auto border-t pt-2 mt-2 border-stone-200 dark:border-stone-600">
             &copy; 2025 Robin Karlberg Technologies AB &middot; 559549-4146
           </div>
         </footer>
