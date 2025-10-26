@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@config "../tailwind.config.js";
+
+@layer base {
+  .page {
+    max-width: var(--container-2xl);
+  }
+}
