@@ -1,5 +1,6 @@
 import { HouseIcon, MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 import Link from "next/link";
+import { getAllPostsMeta } from "../lib/posts";
 
 const LINKS = [
   {
@@ -19,7 +20,18 @@ const LINKS = [
   },
 ]
 
-const Home = () => {
+const formatDate = (dateString) => {
+  if (!dateString) return null;
+  return new Intl.DateTimeFormat("en", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(new Date(dateString));
+};
+
+const Home = async () => {
+  const posts = (await getAllPostsMeta()).slice(0, 3);
+
   return (
     <div className="px-4 sm:px-6">
       <div className="page mx-auto">
@@ -29,11 +41,11 @@ const Home = () => {
             develops, provides and sells IT systems and cloud-based services (SaaS) as well as offers support and consulting services within IT, and activities compatible therewith.
           </p>
         </div>
-        <div className="space-y-12">
+        <div className="space-y-8">
           <div>
-            <h2 className="text-2xl font-bold mb-4">Products</h2>
+            <h2 className="text-2xl font-bold mb-2">Products</h2>
             <ul className="space-y-2">
-              {LINKS.map(({ link, title, description, href }, i) => (
+              {LINKS.map(({ title, description, href }, i) => (
                 <li key={i}>
                   <Link href={href} className="block hover:bg-primary-50 hover:dark:bg-primary-700 rounded-xl py-2 -my-2 px-3 -mx-3">
                     <div className="w-full">
@@ -51,7 +63,35 @@ const Home = () => {
             </ul>
           </div>
           <div>
-            <h2 className="text-2xl font-bold mb-4">About us</h2>
+            <h2 className="text-2xl font-bold mb-2">Blog</h2>
+            <ul className="space-y-2">
+              {posts.map((post) => (
+                <li key={post.slug}>
+                  <Link href={`/blog/${post.slug}`} className="block hover:bg-primary-50 hover:dark:bg-primary-700 rounded-xl py-3 -my-2 px-3 -mx-3">
+                    <div className="w-full">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                        <h3 className="font-bold text-lg">{post.title}</h3>
+                        {post.date && <time className="text-sm text-primary-500">{formatDate(post.date)}</time>}
+                      </div>
+                      <p className="text-justify text-primary-600 dark:text-primary-200">
+                        {post.description}
+                      </p>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+              {posts.length === 0 && (
+                <li className="text-primary-500">No posts just yet — check back soon.</li>
+              )}
+            </ul>
+            <div className="text-sm mt-3">
+              <Link href="/blog" className="hover:underline">
+                Read all posts &rarr;
+              </Link>
+            </div>
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold mb-2">About us</h2>
             <div className="space-y-2">
               <p className="text-justify">
                 RKT was founded by <strong><Link target="_blank" href={"https://www.linkedin.com/in/robin-karlberg/"} className="hover:underline">Robin</Link></strong>, a hacker, web developer, and music producer.
@@ -62,7 +102,7 @@ const Home = () => {
             </div>
           </div>
           <div>
-            <h2 className="text-2xl font-bold mb-4">Contact</h2>
+            <h2 className="text-2xl font-bold mb-2">Contact</h2>
             <div className="space-y-2">
               <p className="flex items-center gap-2">
                 <MailIcon size={16} /> robin [at] rkt.dev
