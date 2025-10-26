@@ -1,17 +1,17 @@
 import "./globals.css";
 
-// import { Bricolage_Grotesque } from "next/font/google";
-import { Playfair_Display } from "next/font/google";
+import { Bricolage_Grotesque } from "next/font/google";
+// import { Playfair_Display } from "next/font/google";
 
-// const font = Bricolage_Grotesque({
-//   weight: ['400', '500', '600', '700', '800'],
-//   subsets: ["latin"]
-// })
-
-const font = Playfair_Display({
-  weight: ['400', '500', '600', '700', '800', '900'],
+const font = Bricolage_Grotesque({
+  weight: ['400', '500', '600', '700', '800'],
   subsets: ["latin"]
 })
+
+// const font = Playfair_Display({
+//   weight: ['400', '500', '600', '700', '800', '900'],
+//   subsets: ["latin"]
+// })
 
 export const metadata = {
   title: `RKT AB | Building Useful Websites`,
