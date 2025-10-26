@@ -15,6 +15,7 @@ export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const posts = await getAllPostsMeta();
+  if (posts.length == 0) return []
   return posts.map((post) => ({ slug: post.slug }));
 }
 
