@@ -15,7 +15,7 @@ export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const posts = await getAllPostsMeta();
-  if (posts.length == 0) return []
+  if (posts.length == 0) return [{ slug: "_not-found" }]
   return posts.map((post) => ({ slug: post.slug }));
 }
 
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: `${post.title} | RKT Blog`,
+    title: `${post.title} | Building Useful Websites`,
     description: post.description,
   };
 }
