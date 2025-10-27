@@ -36,14 +36,13 @@ const Home = async () => {
     <div className="px-4 sm:px-6">
       <div className="page mx-auto">
         <div className="mb-8">
-          <h1 className="text-5xl sm:text-6xl font-bold inline me-2 tracking-tight">RKT</h1>
-          <p className="inline">
-            develops, provides and sells IT systems and cloud-based services (SaaS) as well as offers support and consulting services within IT, and activities compatible therewith.
-          </p>
+          <h1 className="text-4xl sm:text-5xl sm:leading-12 font-bold me-2 tracking-tight">
+            RKT makes useful websites.
+          </h1>
         </div>
         <div className="space-y-8">
           <div>
-            <h2 className="text-2xl font-bold mb-2">Products</h2>
+            {/* <h2 className="text-2xl font-bold mb-2">Websites</h2> */}
             <ul className="space-y-2">
               {LINKS.map(({ title, description, href }, i) => (
                 <li key={i}>
